@@ -53,5 +53,5 @@ def change_password(email, new_password):
     if email_confirm:
         new_hashed_password = hashlib.sha256(new_password.encode("utf-8")).hexdigest()
         collection_a.update_one({"Email": email}, {'$set': {'Password': new_hashed_password}})
-    return "You have a new password"
+    return "You have a new password. Yay!"
 
