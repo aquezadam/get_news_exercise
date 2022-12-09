@@ -41,7 +41,7 @@ def login(email, password):
         else:
             return "wrong password"
     else:
-        return "No user found with these credentials"
+        return "No user found with these credentials. Try again."
 
 
 def change_password(email, new_password):
