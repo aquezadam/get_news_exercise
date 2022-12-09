@@ -55,3 +55,22 @@ def change_password(email, new_password):
         collection_a.update_one({"Email": email}, {'$set': {'Password': new_hashed_password}})
     return "You have a new password. Yay!"
 
+# try?
+
+    # link, id, serach collection
+# when there is no data user in new colection
+
+
+
+
+
+col_searches = db["search_made_by_user"]
+
+
+def add_searches(id, searches):
+    search_details_to_push = {"_id": id, "searches": searches}
+    id_check = col.find_one({"_id": id})["_id"]
+    if id_check not in col_searches.find_one({"_id":id}):
+        col_searches.insert_one(search_details_to_push)
+    else:
+        col.searches.update({"_id":id}, {"$set":{"searches":searches}})
